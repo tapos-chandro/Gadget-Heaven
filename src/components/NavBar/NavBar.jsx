@@ -2,27 +2,28 @@
 
 import { useState } from 'react'
 import { IoCartOutline } from 'react-icons/io5'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
 
 
     const {pathname} = useLocation()
+    const {category} = useParams()
 
   const [toggle, setToggle] = useState(false)
 
   const lgActiveLink = ({ isActive }) => ({
-    color: isActive ? pathname === '/'? '#fff': '#9538E2': '',
+    color: isActive ? pathname === '/' || pathname === `/product/${category}`? '#fff': '#9538E2': '',
     background: isActive ? 'transparent' : 'transparent',
-    textDecoration: isActive ? pathname === '/'? 'underline': '': '',
+    textDecoration: isActive ? pathname === '/' || pathname === `/product/${category}` ? 'underline': '': '',
     fontWeight: isActive ? '700' : 'normal'
     
   })
   const phoneActiveLink = ({ isActive }) => ({
-    color: isActive ? pathname === '/'? '#9538E2': '#9538E2': '',
+    color: isActive ? pathname === '/'||  pathname === `/product/${category}`? '#9538E2': '#9538E2': '',
     background: isActive ? 'transparent' : 'transparent',
-    textDecoration: isActive ? pathname === '/'? 'underline': '': '',
+    textDecoration: isActive ? pathname === '/' || pathname === `/product/${category}`? 'underline': '': '',
     fontWeight: isActive ? '700' : 'normal'
     
   })
@@ -65,12 +66,12 @@ const NavBar = () => {
 
 
   return (
-    <div className={`navbar  lg:grid lg:grid-cols-3 lg:justify-between  ${pathname === '/' && 'mt-8'}`}>
+    <div className={`navbar  lg:grid lg:grid-cols-3 lg:justify-between  ${pathname === '/' || pathname === `/product/${category}` ?'mt-8' : ''}`}>
       <div className='p-0 navbar '>
-        <a href='/' className={`text-xl md:text-2xl  lg:text-3xl font-bold text-black ${pathname === '/' && 'text-white'}`}>Gadget Heaven</a>
+        <a href='/' className={`text-xl md:text-2xl  lg:text-3xl font-bold text-black ${pathname === '/' || pathname === `/product/${category}` ? 'text-white' : ''}`}>Gadget Heaven</a>
       </div>
       <div className='justify-center hidden navbar-center lg:flex '>
-        <ul className={`flex gap-4 px-1 menu menu-horizontal ${pathname === '/' && 'text-white'}`}>{lgNavLinks}</ul>
+        <ul className={`flex gap-4 px-1 menu menu-horizontal ${pathname === '/' || pathname === `/product/${category}` ? 'text-white' : ''}`}>{lgNavLinks}</ul>
       </div>
       <div className='hidden lg:block'>
         <div className='flex justify-end gap-4'>
@@ -83,7 +84,7 @@ const NavBar = () => {
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden' onClick={() => {setToggle(!toggle)}}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className={`w-5 h-5 ${pathname === '/' && 'text-white'}`}
+              className={`w-5 h-5 ${pathname === '/' || pathname === `/product/${category}` && 'text-white'}`}
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -100,7 +101,7 @@ const NavBar = () => {
             tabIndex={0}
             className={`menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0 border-primary-color border-[1px] ${toggle && 'hidden'}`}
           >
-            <div className={`flex flex-col justify-center text-center gap-2 ${pathname === '/' && 'text-black'}`} >{phoneNavLinks}</div>
+            <div className={`flex flex-col justify-center text-center gap-2 ${pathname === '/' || pathname === `/product/${category}` && 'text-black'}`} >{phoneNavLinks}</div>
             <div className='flex justify-center gap-2 pt-2 lg:hidden'>
             <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><IoCartOutline /></button>
             <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><FontAwesomeIcon icon={faHeart}/></button>
