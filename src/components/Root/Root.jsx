@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import SubBanner from "../Banner/SubBanner";
+import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 
@@ -17,6 +18,11 @@ const Root = () => {
         </div>
       </div>
         <Outlet />
+        <div className="bg-white ">
+        <div className="max-w-7xl mx-auto px-5 lg:px-0 md:px-5">
+        <Footer/>
+        </div>
+        </div>
     </div>
   );
 };
