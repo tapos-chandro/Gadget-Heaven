@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "title": "MacBook Pro M2",
+    "image": "https://i.ibb.co.com/SXMVHdB/macbook-pro-m2-16inch-apple-600nw-2288025241-processed.png",
+    "category": "laptop",
+    "price": 1299,
+    "description": "MacBook Pro with the powerful M2 chip and Retina display.",
+    "specification": [
+      "Apple M2 chip",
+      "16GB RAM",
+      "512GB SSD",
+      "Retina Display"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "id": 2,
+    "title": "Galaxy Watch 5",
+    "image": "https://i.ibb.co.com/1bN861w/watch-processed.png",
+    "category": "smart watches",
+    "price": 299,
+    "description": "Stylish smartwatch with fitness tracking and long battery life.",
+    "specification": [
+      "Heart rate monitoring",
+      "Durable design",
+      "GPS",
+      "Long-lasting battery"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "title": "iPhone 14 Pro",
+    "image": "https://i.ibb.co.com/wpMmyx9/iphone.png",
+    "category": "phones",
+    "price": 1099,
+    "description": "Flagship iPhone with cutting-edge technology.",
+    "specification": [
+      "A16 Bionic Chip",
+      "6.7-inch OLED Display",
+      "Pro Camera System",
+      "5G Enabled"
+    ],
+    "availability": false,
+    "rating": 4.8
+  },
+  {
+    "id": 4,
+    "title": "Dell XPS 13",
+    "image": "https://i.ibb.co.com/8mX8tth/dell.png",
+    "category": "laptop",
+    "price": 999,
+    "description": "Lightweight and compact laptop with InfinityEdge display.",
+    "specification": [
+      "11th Gen Intel i7",
+      "16GB RAM",
+      "1TB SSD",
+      "13.4-inch display"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "title": "AirPods Pro",
+    "image": "https://i.ibb.co.com/y88JdPX/bluetooth-processed.png",
+    "category": "accessories",
+    "price": 249,
+    "description": "Premium wireless earbuds with active noise cancellation.",
+    "specification": [
+      "Active noise cancellation",
+      "Sweat and water-resistant",
+      "MagSafe charging",
+      "H1 chip"
+    ],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "id": 6,
+    "title": "Logitech MX Master 3",
+    "image": "https://i.ibb.co.com/ssQZty8/LOGITECHMXADV-processed.png",
+    "category": "accessories",
+    "price": 99,
+    "description": "Advanced wireless mouse with ergonomic design.",
+    "specification": [
+      "Ergonomic design",
+      "Wireless connection",
+      "High precision tracking",
+      "Customizable buttons"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "id": 7,
+    "title": "Galaxy S22",
+    "image": "https://i.ibb.co.com/N3F4WJJ/phone-processed.png",
+    "category": "phones",
+    "price": 799,
+    "description": "Sleek and powerful smartphone with cutting-edge features.",
+    "specification": [
+      "Snapdragon 8 Gen 1",
+      "120Hz AMOLED display",
+      "5G Enabled",
+      "Triple camera system"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "id": 8,
+    "title": "Apple Watch Series 8",
+    "image": "https://i.ibb.co.com/k5btC6m/images-1-processed.png",
+    "category": "smart watches",
+    "price": 399,
+    "description": "Advanced smartwatch with health tracking and fitness features.",
+    "specification": [
+      "Heart rate and ECG monitoring",
+      "Durable design",
+      "Always-on Retina display",
+      "Fast charging"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "id": 9,
+    "title": "Lenovo ThinkPad X1",
+    "image": "https://i.ibb.co.com/gwYW9c8/hp-elitebook-840-g9-2022-100935033-large-processed.png",
+    "category": "laptop",
+    "price": 1150,
+    "description": "Professional-grade laptop for business and productivity.",
+    "specification": [
+      "Intel Core i7",
+      "16GB RAM",
+      "512GB SSD",
+      "14-inch display"
+    ],
+    "availability": true,
+    "rating": 4.5
+  }
+]

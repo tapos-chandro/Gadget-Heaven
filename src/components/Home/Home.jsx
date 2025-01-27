@@ -3,16 +3,12 @@ import Banner from "../Banner/Banner";
 import SubBanner from "../Banner/SubBanner";
 import Products from "./Products";
 import Menus from "./Menus";
+import Product from "./product";
 
 const Home = () => {
+  const { category } = useParams();
 
-  const {category} = useParams()
-
-  const {pathname} = useLocation()
-
-
-
-
+  const { pathname } = useLocation();
 
   return (
     <div>
@@ -40,22 +36,17 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center px-5 md:px-5 lg:px-0">
         <h1 className="text-[2.5rem] font-bold text-black py-12">
           Explore Cutting-Edge Gadgets
         </h1>
-        <div className="flex justify-between ">
-        <div className="max-w-[15rem]">
-          <Menus></Menus>
-        </div>
-        <div className="max-w-[63.5rem]">
-
-        {
-            pathname === `/product/${category} ` ?
-            <Outlet></Outlet>:  <Products></Products>
-          }
-
-        </div>
+        <div className="flex flex-col gap-6 items-center md:items-start pb-24 lg:items-start lg:flex-row md:flex-row md:justify-between lg:justify-between  ">
+          <div className="w-[20rem] md:max-w-[15rem] lg:max-w-[15rem]">
+            <Menus></Menus>
+          </div>
+          <div className="max-w-[68rem]">
+            <Products></Products>
+          </div>
         </div>
       </div>
     </div>
