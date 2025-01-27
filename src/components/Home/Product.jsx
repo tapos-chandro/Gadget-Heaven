@@ -1,10 +1,21 @@
 
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { ContextProvider } from '../../Context/Context';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
   const {id,title,image,price} = product
+  // const {} = useContext(ContextProvider)
 
-console.log(id)
+const navigate = useNavigate()
+
+const handleDetails = (id) => {
+
+  navigate(`/details/${id}`)
+
+
+}
 
   return (
   
@@ -20,7 +31,7 @@ console.log(id)
           <h2 className="card-title">{title}</h2>
           <p className="text-left font-medium text-xl text-gray-500">Price: {price}k</p>
           <div className="bg-[#9538E2] flex justify-start max-w-40 p-[2px] rounded-full text-center ">
-            <button  className="text-center p-[10px] w-full bg-white rounded-full text-[#9538E2] font-semibold text-xl ">View Details</button>
+            <button onClick={() => handleDetails(id) }  className="text-center p-[10px] w-full bg-white rounded-full text-[#9538E2] font-semibold text-xl">View Details</button>
           </div>
         </div>
       </div>

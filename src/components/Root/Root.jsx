@@ -1,14 +1,13 @@
-import Banner from "../Banner/Banner";
-import SubBanner from "../Banner/SubBanner";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 import { Outlet, useLocation, useParams } from "react-router-dom";
+
 
 const Root = () => {
   const { pathname } = useLocation();
   const { category } = useParams();
   const isTransparent = pathname === "/" || pathname === `/product/${category}`;
-  const navbarClass = isTransparent ? "bg-transparent pt-1" : "bg-yellow-200";
+  const navbarClass = isTransparent ? "bg-transparent pt-1" : "bg-gray-50";
 
   return (
     <div className="bg-[#f7f7f7]">

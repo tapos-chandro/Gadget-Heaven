@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Statistics from "../Statistics/Statistics";
 import Dashboard from "../Dashboard/Dashboard";
 import Products from "../Home/Products";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: 'dashboard',
                 element: <Dashboard/>
+            },
+            {
+                path: 'details/:productId',
+                element: <ProductDetails/>
             }
           ]
         },
