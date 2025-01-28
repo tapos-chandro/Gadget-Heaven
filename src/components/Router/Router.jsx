@@ -5,6 +5,8 @@ import Statistics from "../Statistics/Statistics";
 import Dashboard from "../Dashboard/Dashboard";
 import Products from "../Home/Products";
 import ProductDetails from "../ProductDetails/ProductDetails";
+import CartDetails from "../Dashboard/CartDetails";
+import WishList from "../Dashboard/WishList";
 
 
 
@@ -32,12 +34,22 @@ const router = createBrowserRouter([
             },
             {
                 path: 'dashboard',
-                element: <Dashboard/>
+                element: <Dashboard/>,
+                children:[
+                  {
+                    path: '/dashboard',
+                    element:<CartDetails/>
+                  },
+                  {
+                    path: '/dashboard/wishlist',
+                    element:<WishList/>
+                  }
+                ]
             },
             {
                 path: 'details/:productId',
                 element: <ProductDetails/>
-            }
+            },
           ]
         },
       ]);
