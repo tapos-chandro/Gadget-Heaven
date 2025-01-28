@@ -9,7 +9,9 @@ const Context = ({children}) => {
 
     const [products, setProducts] = useState([])
     const [categoryName, setCategoryName] = useState('All')
-
+    const [addCart, setAddCart] = useState([])
+    const [isLoading, setLoading] = useState(false)
+    const [wishList, setWishList] = useState([])
 
 
     
@@ -51,7 +53,11 @@ const Context = ({children}) => {
         products,
         categoryName,
          setCategoryName,
-         productCategory
+         productCategory,
+         addCart,
+         setAddCart,
+         isLoading, setLoading,
+         wishList, setWishList
     }
 
 
