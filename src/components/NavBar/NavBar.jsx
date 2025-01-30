@@ -84,7 +84,7 @@ const NavBar = () => {
           <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden' onClick={() => {setToggle(!toggle)}}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className={`w-5 h-5 ${pathname === '/' || pathname === `/product/${category}` && 'text-white'}`}
+              className={`w-5 h-5 ${pathname === '/' || pathname === `/product/${category}` ?'text-white' : ''}`}
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
