@@ -4,13 +4,12 @@ import { useContext, useState } from "react";
 import { ContextProvider } from "../../Context/Context";
 import CartDetail from "./CartDetail";
 import NotFound from "../NotFound/NotFound";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const CartDetails = () => {
   const [sortByPurchase, setSortByPurchase] = useState("");
   const { addCart, setAddCart } = useContext(ContextProvider);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const totalPrice = addCart.reduce(
     (product, current) => product + current.price,
@@ -23,15 +22,22 @@ const CartDetails = () => {
   };
 
   const handlePurchase = () => {
-    Swal.fire({
-      title: "The Internet?",
-      text: "That thing is still around?",
-      icon: "question"
-    });
 
-    navigate('/')
+    // navigate('/')
+
+
+    document.getElementById('my_modal_1').showModal()
+
+    setAddCart([])
+
 
   };
+
+
+  const handleClose = () => {
+    navigate('/')
+      console.log('click me')
+  }
 
   return (
     <div className="pb-20">
@@ -70,7 +76,8 @@ const CartDetails = () => {
               style={{
                 background: "linear-gradient(180deg, #9639e3, #d656a5)",
               }}
-              onClick={() => handlePurchase("my_modal_2")}
+              onClick={()=> handlePurchase()}
+              
             >
               <button
                 onClick={() => setSortByPurchase("purchase")}
@@ -89,6 +96,23 @@ const CartDetails = () => {
       {addCart.map((product) => (
         <CartDetail product={product} key={product.id}></CartDetail>
       ))}
+
+
+<dialog id="my_modal_1" className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button onClick={() => handleClose()} className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
 
       {addCart.length === 0 && <NotFound title=" Add To Cart Not Available" />}
     </div>

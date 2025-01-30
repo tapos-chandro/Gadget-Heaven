@@ -1,14 +1,14 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Banner from "../Banner/Banner";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ContextProvider } from "../../Context/Context";
 
 
 const Dashboard = () => {
   const {pathname} = useLocation()
   const [isActive, setIsActive] = useState("cart");
 
-
-  console.log(pathname, isActive)
+  const {addCart} = useContext(ContextProvider)
 
 
   return (
@@ -25,10 +25,11 @@ const Dashboard = () => {
             <NavLink to={"/dashboard"}>
               <button
                 onClick={() => setIsActive("cart")}
-                className={`px-16 border border-white rounded-full py-3 font-extrabold text-xl 
+                className={` px-16 border disabled:bg-transparent disabled:text-gray-400 border-white rounded-full py-3 font-extrabold text-xl 
                   ${pathname === "/dashboard/wishlist" && 'bg-transparent text-white'}
                   
                   ${  pathname === "/dashboard" && isActive === 'cart'  && "bg-white text-[#9538E2]"}`} 
+                  disabled = {addCart.length === 0 ? 'disabled' : null}
               >
                 Cart 
               </button>
@@ -47,11 +48,7 @@ const Dashboard = () => {
         </div>
       </Banner>
 
-      {/* bg-[#9538E2] */}
-
-      <div className="max-w-7xl mx-auto px-5 md:px-5 lg:px-0">
-        
-
+      <div className="max-w-7xl mx-auto px-5 md:px-5 lg:px-0">        
         <Outlet />
       </div>
     </div>
