@@ -1,12 +1,9 @@
 
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { ContextProvider } from '../../Context/Context';
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
   const {id,title,image,price} = product
-  // const {} = useContext(ContextProvider)
 
 const navigate = useNavigate()
 

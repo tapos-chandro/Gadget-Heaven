@@ -2,16 +2,21 @@
 
 import { useState } from 'react'
 import { IoCartOutline } from 'react-icons/io5'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { useContext } from 'react'
+import { ContextProvider } from '../../Context/Context'
 const NavBar = () => {
 
 
-    const {pathname} = useLocation()
-    const {category} = useParams()
-
+  const {pathname} = useLocation()
+  const {category} = useParams()
   const [toggle, setToggle] = useState(false)
+  const {addCart,wishList} = useContext(ContextProvider)
+  const navigate = useNavigate()
+
+
 
   const lgActiveLink = ({ isActive }) => ({
     color: isActive ? pathname === '/' || pathname === `/product/${category}`? '#fff': '#9538E2': '',
@@ -63,6 +68,14 @@ const NavBar = () => {
     </li>
   </>
 
+  const handleCart = () => {
+    navigate('/dashboard')
+
+  }
+  const handleWishList = () => {
+    navigate('/dashboard/wishlist')
+
+  }
 
 
   return (
@@ -75,8 +88,8 @@ const NavBar = () => {
       </div>
       <div className='hidden lg:block'>
         <div className='flex justify-end gap-4'>
-          <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><IoCartOutline /></button>
-          <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><FontAwesomeIcon icon={faHeart}/></button>
+          <button onClick={handleCart} className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300 relative'><IoCartOutline /><span className={`absolute -top-3.5 text-gray-600 rounded-full ${addCart.length> 0 ? 'block': 'hidden'}`}>{addCart.length}</span></button>
+          <button onClick={handleWishList}  className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300 relative'><FontAwesomeIcon icon={faHeart}/><span className={`absolute -top-3.5 text-gray-600 rounded-full ${wishList.length> 0 ? 'block': 'hidden'}`}>{wishList.length}</span></button>
         </div>
       </div>
       <div className={`navbar-end `}>
@@ -103,8 +116,8 @@ const NavBar = () => {
           >
             <div className={`flex flex-col justify-center text-center gap-2 ${pathname === '/' || pathname === `/product/${category}` && 'text-black'}`} >{phoneNavLinks}</div>
             <div className='flex justify-center gap-2 pt-2 lg:hidden'>
-            <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><IoCartOutline /></button>
-            <button className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300'><FontAwesomeIcon icon={faHeart}/></button>
+            <button onClick={handleCart} className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300 relative'><IoCartOutline /><span className={`absolute -top-3.5 text-gray-600 rounded-full ${addCart.length> 0 ? 'block': 'hidden'}`}>{addCart.length}</span></button>
+            <button onClick={handleWishList}  className='rounded-full flex justify-center items-center bg-white h-7 w-7 border border-gray-300 relative'><FontAwesomeIcon icon={faHeart}/><span className={`absolute -top-3.5 text-gray-600 rounded-full ${wishList.length> 0 ? 'block': 'hidden'}`}>{wishList.length}</span></button>
             </div>
           </ul>
         </div>
