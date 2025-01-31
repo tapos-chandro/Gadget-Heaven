@@ -22,16 +22,7 @@ const Menus = () => {
         {
             id:5,
             product: 'Smart Watches',
-        },
-        {
-            id:6,
-            product: 'MacBook',
-        },
-        {
-            id: 7,
-            product:'Iphone',
         }
-        
         
 
     ]

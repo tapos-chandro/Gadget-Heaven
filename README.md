@@ -1,7 +1,7 @@
 
 # Gadget Heaven
 
-## [Project Live]()
+## [Project Live](https://storied-lily-5d899a.netlify.app/)
 
 ------------------------------------------------------------
 
@@ -32,5 +32,5 @@
 #### Dashboard 
 - Users can access the Dashboard to view all added products.
 
-#### User Authentication (Login/Signup)
+#### User Authentication (Login/SignUp)
 - Secure user registration and login system
