@@ -1,8 +1,36 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Gadget Heaven
 
-Currently, two official plugins are available:
+## [Project Live]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+------------------------------------------------------------
+
+## Used In The Project
+
+### Design
+- Tailwind Css
+- Daisyui
+### Development used in
+- Javascript
+- Racet 
+- React Router
+- Json Data 
+- React Helmet
+- React Toastify
+- React Icon
+
+### My Website Featuchers 
+#### Home 
+- Displays all available products with images, descriptions, and prices.
+- Includes a navigation bar for easy browsing and a footer with essential links.
+####  Product Detail Page
+
+- Clicking the "View Detail" button navigates to a dedicated product page.
+
+#### Add to Cart
+- Users can click "Add to Cart" to store selected products.
+#### Dashboard 
+- Users can access the Dashboard to view all added products.
+
+#### User Authentication (Login/Signup)
+- Secure user registration and login system

@@ -13,6 +13,7 @@ const Context = ({children}) => {
     const [isLoading, setIsLoading] = useState(false)
     const [wishList, setWishList] = useState([])
     const [addWishList, setAddWishList] = useState(false)
+    const [totalPrice, setTotalPrice] = useState(0)
 
 
     
@@ -59,7 +60,8 @@ const Context = ({children}) => {
          setAddCart,
          isLoading, setIsLoading,
          wishList, setWishList,
-         addWishList, setAddWishList
+         addWishList, setAddWishList,
+         totalPrice, setTotalPrice
     }
 
 

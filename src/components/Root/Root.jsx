@@ -12,13 +12,13 @@ const Root = () => {
   return (
     <div className="bg-[#f7f7f7]">
       <div className={navbarClass}>
-        <div className={` max-w-7xl mx-auto px-5 lg:px-0 md:px-5 `}>
+        <div className={` max-w-7xl mx-auto px-5 lg:px-0 md:px-5 ${pathname === '/login' || pathname === '/signUp' ? 'hidden': ''}`}>
           <NavBar />
         </div>
       </div>
         <Outlet />
         <div className="bg-white ">
-        <div className="max-w-7xl mx-auto px-5 lg:px-0 md:px-5">
+        <div className={`max-w-7xl mx-auto px-5 lg:px-0 md:px-5 ${pathname === '/login' || pathname === '/signUp' ? 'hidden': ''}`}>
         <Footer/>
         </div>
         </div>

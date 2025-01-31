@@ -48,6 +48,12 @@ const NavBar = () => {
       <li>
         <NavLink to='/dashboard' style={lgActiveLink} className='flex justify-center w-full text-center'>Dashboard</NavLink >
       </li>
+      <li>
+        <NavLink to='/login' style={lgActiveLink} className='flex justify-center w-full text-center'>
+        
+     Login
+        </NavLink >
+      </li>
     </>
   
 
@@ -66,6 +72,9 @@ const NavBar = () => {
     <li>
       <NavLink to='/dashboard' style={phoneActiveLink} className='flex justify-center w-full text-center'>Dashboard</NavLink >
     </li>
+    <li>
+        <NavLink to='/login' style={lgActiveLink} className='flex justify-center w-full text-center'>Login</NavLink >
+      </li>
   </>
 
   const handleCart = () => {

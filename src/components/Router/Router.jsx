@@ -7,6 +7,11 @@ import Products from "../Home/Products";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import CartDetails from "../Dashboard/CartDetails";
 import WishList from "../Dashboard/WishList";
+import NotFound from "../NotFound/NotFound";
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
+// import SignUp from "../SignUp/SignUp";
+// import Login from "../Login/Login";
 
 
 
@@ -16,6 +21,7 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Root/>,
+          errorElement: <NotFound title="Page Not Found"></NotFound>,
           children: [
             {
                 path: "/",
@@ -50,6 +56,14 @@ const router = createBrowserRouter([
                 path: 'details/:productId',
                 element: <ProductDetails/>
             },
+            {
+              path: 'login',
+              element: <Login/>
+            },
+            {
+              path: 'signUp',
+              element: <SignUp/>
+            }
           ]
         },
       ]);

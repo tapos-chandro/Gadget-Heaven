@@ -2,17 +2,21 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import { useContext, useState } from "react";
 import { ContextProvider } from "../../Context/Context";
-
+import { Helmet } from "react-helmet";
 
 const Dashboard = () => {
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const [isActive, setIsActive] = useState("cart");
 
-  const {addCart} = useContext(ContextProvider)
-
+  const { addCart, wishList } = useContext(ContextProvider);
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard</title>
+        {/* <link rel="canonical" href={favIcon} /> */}
+      </Helmet>
       <Banner>
         <div className="text-center text-white py-8">
           <h1 className="text-3xl font-bold">Dashboard</h1>
@@ -26,19 +30,29 @@ const Dashboard = () => {
               <button
                 onClick={() => setIsActive("cart")}
                 className={` px-16 border disabled:bg-transparent disabled:text-gray-400 border-white rounded-full py-3 font-extrabold text-xl 
-                  ${pathname === "/dashboard/wishlist" && 'bg-transparent text-white'}
+                  ${
+                    pathname === "/dashboard/wishlist" &&
+                    "bg-transparent text-white"
+                  }
                   
-                  ${  pathname === "/dashboard" && isActive === 'cart'  && "bg-white text-[#9538E2]"}`} 
-                  disabled = {addCart.length === 0 ? 'disabled' : null}
+                  ${
+                    pathname === "/dashboard" &&
+                    isActive === "cart" &&
+                    "bg-white text-[#9538E2]"
+                  }`}
+                disabled={addCart.length === 0 ? "disabled" : null}
               >
-                Cart 
+                Cart
               </button>
             </NavLink>
             <NavLink to={"/dashboard/wishlist"}>
               <button
+                disabled={wishList.length === 0 ? "disabled" : null}
                 onClick={() => setIsActive("wishlist")}
-                className={`px-16 border border-white rounded-full py-3 font-extrabold text-xl ${
-                  pathname === "/dashboard/wishlist" || isActive ===  'wishlist' ? "bg-white text-[#9538E2]" : ''
+                className={`px-16 border border-white rounded-full py-3 font-extrabold text-xl  ${
+                  pathname === "/dashboard/wishlist" || isActive === "wishlist"
+                    ? "bg-white text-[#9538E2]"
+                    : ""
                 }`}
               >
                 Wishlist
@@ -48,7 +62,7 @@ const Dashboard = () => {
         </div>
       </Banner>
 
-      <div className="max-w-7xl mx-auto px-5 md:px-5 lg:px-0">        
+      <div className="max-w-7xl mx-auto px-5 md:px-5 lg:px-0">
         <Outlet />
       </div>
     </div>

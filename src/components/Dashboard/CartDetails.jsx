@@ -1,20 +1,32 @@
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextProvider } from "../../Context/Context";
 import CartDetail from "./CartDetail";
 import NotFound from "../NotFound/NotFound";
 import { useNavigate } from "react-router-dom";
+import modalIcon from '../../assets/Group.png'
 
 const CartDetails = () => {
   const [sortByPurchase, setSortByPurchase] = useState("");
-  const { addCart, setAddCart } = useContext(ContextProvider);
+  const { addCart, setAddCart ,totalPrice, setTotalPrice} = useContext(ContextProvider);
+
+
+  
   const navigate = useNavigate();
 
-  const totalPrice = addCart.reduce(
-    (product, current) => product + current.price,
-    0
-  );
+  
+
+  useEffect(() => {
+    const total = addCart.reduce(
+      (product, current) => product + current.price,
+      0
+    );
+    setTotalPrice(parseFloat(total))
+
+  },[])
+
+  
 
   const handleSortByPrice = () => {
     const sortProduct = addCart.sort((a, b) => b.price - a.price);
@@ -36,7 +48,7 @@ const CartDetails = () => {
 
   const handleClose = () => {
     navigate('/')
-      console.log('click me')
+    setTotalPrice(0)
   }
 
   return (
@@ -58,7 +70,8 @@ const CartDetails = () => {
             >
               <button
                 onClick={() => setSortByPurchase("sort")}
-                className={` px-5 p-3 rounded-full flex justify-center ${
+                disabled= {addCart.length === 0 ? 'disabled': null}
+                className={` disabled:text-gray-300 px-5 p-3 rounded-full flex justify-center ${
                   sortByPurchase === "sort"
                     ? "text-[#FFF] bg-transparent"
                     : "text-[#9538E2] bg-white"
@@ -71,21 +84,23 @@ const CartDetails = () => {
               </button>
             </span>
             <span
-              className=" font-bold p-0.5
+              className=" font-bold p-0.5 
               rounded-full justify-center flex items-center  "
               style={{
-                background: "linear-gradient(180deg, #9639e3, #d656a5)",
+                background: "linear-gradient(180deg, #9639e3, #d656a5) ",
               }}
               onClick={()=> handlePurchase()}
+              
               
             >
               <button
                 onClick={() => setSortByPurchase("purchase")}
-                className={` w-full  px-5 p-3 rounded-full flex justify-center text-center ${
+                className={` w-full  px-5 p-3 disabled:text-gray-300 rounded-full flex justify-center text-center ${
                   sortByPurchase === "purchase"
                     ? "text-[#FFF] bg-transparent"
                     : "text-[#9538E2] bg-white"
                 }`}
+                disabled= {addCart.length === 0 ? 'disabled': null}
               >
                 Purchase
               </button>
@@ -96,25 +111,32 @@ const CartDetails = () => {
       {addCart.map((product) => (
         <CartDetail product={product} key={product.id}></CartDetail>
       ))}
-
-
-<dialog id="my_modal_1" className="modal">
-  <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
-    <div className="modal-action">
-      <form method="dialog">
-        {/* if there is a button in form, it will close the modal */}
-        <button onClick={() => handleClose()} className="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-
-
-
       {addCart.length === 0 && <NotFound title=" Add To Cart Not Available" />}
+
+      {/* modal start  */}
+
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box flex flex-col justify-center">
+          <div className="flex justify-center"><img src={modalIcon} alt="" /></div>
+          <h3 className="font-bold text-lg text-center text-black">Payment Successfully</h3>
+          <div className="border-b-2 py-2"></div>
+          <p className="py-4 text-center">Thanks for purchasing.</p>
+          <p className="py-4 text-center">Total:{totalPrice}</p>
+          <div className="modal-action">
+       
+              {/* if there is a button in form, it will close the modal */}
+              <div className=" w-full flex justify-center">
+              <button onClick={() => handleClose()} className="btn flex justify-center w-full rounded-full text-black">Close</button>
+              </div>
+            
+          </div>
+        </div>
+      </dialog>
+      {/* modal end  */}
+
+
+
+
     </div>
   );
 };

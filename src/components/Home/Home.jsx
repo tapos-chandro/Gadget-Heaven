@@ -1,16 +1,17 @@
-// import {  useLocation, useParams } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import SubBanner from "../Banner/SubBanner";
 import Products from "./Products";
 import Menus from "./Menus";
-
+import { Helmet } from "react-helmet";
+import favIcon from "../../assets/favicon-16x16.png"
 const Home = () => {
-  // const { category } = useParams();
-
-  // const { pathname } = useLocation();
-
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href={favIcon}/>
+      </Helmet>
       <div className="lg:max-w-[96.25rem] mx-auto -pt-3">
         <Banner>
           <div className="w-full pt-10 lg:pt-0 pb-32 md:pb-40 lg:pb-48  flex justify-center flex-col gap-4 lg:gap-5">
@@ -24,9 +25,11 @@ const Home = () => {
               we have it all!
             </p>
             <div className="flex justify-center">
+              <a href='#product'>
               <button className="  rounded-full bg-white text-[#9538E2] py-1.5 px-3">
                 Shop Now
               </button>
+              </a>
             </div>
           </div>
         </Banner>
@@ -43,7 +46,7 @@ const Home = () => {
           <div className="w-[14rem] md:max-w-[15rem] lg:max-w-[15rem]">
             <Menus></Menus>
           </div>
-          <div className="w-full md:max-w-[68rem] lg:w-[68rem]">
+          <div className="w-full md:max-w-[68rem] lg:w-[68rem]" id="product">
             <Products></Products>
           </div>
         </div>
